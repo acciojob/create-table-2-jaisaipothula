@@ -1,3 +1,5 @@
+document.getElementById('createTableButton').addEventListener('click', createTable);
+
 function createTable() {
     // Prompt for the number of rows
     const rows = prompt("Input number of rows");
