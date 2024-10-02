@@ -1,28 +1,25 @@
-document.getElementById('createTableButton').addEventListener('click', createTable);
-
 function createTable() {
-    // Prompt user for number of rows and columns
+    // Prompt for the number of rows
     const rows = prompt("Input number of rows");
-    const cols = prompt("Input number of columns");
+    // Prompt for the number of columns
+    const columns = prompt("Input number of columns");
 
-    // Validate user input
-    if (isNaN(rows) || isNaN(cols) || rows <= 0 || cols <= 0) {
-        alert("Please enter valid positive numbers for rows and columns.");
-        return;
-    }
-
-    // Get the table element
+    // Get the table element by its ID
     const table = document.getElementById('myTable');
 
-    // Clear any existing content in the table
+    // Clear any existing rows in the table
     table.innerHTML = '';
 
-    // Create the specified number of rows and columns
+    // Loop through to create rows and columns
     for (let i = 0; i < rows; i++) {
-        const row = table.insertRow(); // Create a new row
-        for (let j = 0; j < cols; j++) {
-            const cell = row.insertCell(); // Create a new cell
-            cell.textContent = `Row-${i} Column-${j}`; // Set the cell text
+        // Create a new row
+        const row = table.insertRow(i);
+        
+        for (let j = 0; j < columns; j++) {
+            // Create a new cell in the row
+            const cell = row.insertCell(j);
+            // Set the text content of the cell
+            cell.textContent = `Row-${i} Column-${j}`;
         }
     }
 }
